@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet" >
+  <link rel='stylesheet' href="style.css">
+  <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script> -->
+
+  <title>React Tic Tac toe</title>
+
+  <!-- <link rel="icon" type="image/png" href="/assets/img/logo.png"> -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600">
+</head>
+<body>
+	  <svg class="defsSvg">
+    <defs xmlns="http://www.w3.org/2000/svg" id="defs845">
+    <filter id="dropShadow" style="color-interpolation-filters: sRGB;" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" inkscape:label="Drop Shadow">
+      <feFlood id="feFlood1133" flood-color="rgb(0,0,0)" flood-opacity="0.498039" result="flood" />
+      <feComposite id="feComposite1135" result="composite1" in="flood" in2="SourceGraphic" operator="in" />
+      <feGaussianBlur id="feGaussianBlur1137" result="blur" in="composite1" stdDeviation="0.5" />
+      <feOffset id="feOffset1139" result="offset" dx="1.8" dy="1.8" />
+      <feComposite id="feComposite1141" result="composite2" in="SourceGraphic" in2="offset" operator="over" />
+    </filter>
+    <filter id="filter1155" style="color-interpolation-filters: sRGB;" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" inkscape:label="Drop Shadow">
+      <feFlood id="feFlood1145" flood-color="rgb(0,0,0)" flood-opacity="0.498039" result="flood" />
+      <feComposite id="feComposite1147" result="composite1" in="flood" in2="SourceGraphic" operator="in" />
+      <feGaussianBlur id="feGaussianBlur1149" result="blur" in="composite1" stdDeviation="0.5" />
+      <feOffset id="feOffset1151" result="offset" dx="1.8" dy="1.8" />
+      <feComposite id="feComposite1153" result="composite2" in="SourceGraphic" in2="offset" operator="over" />
+    </filter>
+    <filter id="filter1167" style="color-interpolation-filters: sRGB;" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" inkscape:label="Drop Shadow">
+      <feFlood id="feFlood1157" flood-color="rgb(0,0,0)" flood-opacity="0.498039" result="flood" />
+      <feComposite id="feComposite1159" result="composite1" in="flood" in2="SourceGraphic" operator="in" />
+      <feGaussianBlur id="feGaussianBlur1161" result="blur" in="composite1" stdDeviation="0.5" />
+      <feOffset id="feOffset1163" result="offset" dx="1.8" dy="1.8" />
+      <feComposite id="feComposite1165" result="composite2" in="SourceGraphic" in2="offset" operator="over" />
+    </filter>
+    <filter id="filter1179" style="color-interpolation-filters: sRGB;" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" inkscape:label="Drop Shadow">
+      <feFlood id="feFlood1169" flood-color="rgb(0,0,0)" flood-opacity="0.498039" result="flood" />
+      <feComposite id="feComposite1171" result="composite1" in="flood" in2="SourceGraphic" operator="in" />
+      <feGaussianBlur id="feGaussianBlur1173" result="blur" in="composite1" stdDeviation="0.5" />
+      <feOffset id="feOffset1175" result="offset" dx="1.8" dy="1.8" />
+      <feComposite id="feComposite1177" result="composite2" in="SourceGraphic" in2="offset" operator="over" />
+    </filter>
+    <filter id="filter1191" style="color-interpolation-filters: sRGB;" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" inkscape:label="Drop Shadow">
+      <feFlood id="feFlood1181" flood-color="rgb(0,0,0)" flood-opacity="0.498039" result="flood" />
+      <feComposite id="feComposite1183" result="composite1" in="flood" in2="SourceGraphic" operator="in" />
+      <feGaussianBlur id="feGaussianBlur1185" result="blur" in="composite1" stdDeviation="0.5" />
+      <feOffset id="feOffset1187" result="offset" dx="1.8" dy="1.8" />
+      <feComposite id="feComposite1189" result="composite2" in="SourceGraphic" in2="offset" operator="over" />
+    </filter>
+    <filter id="filter1203" style="color-interpolation-filters: sRGB;" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" inkscape:label="Drop Shadow">
+      <feFlood id="feFlood1193" flood-color="rgb(0,0,0)" flood-opacity="0.498039" result="flood" />
+      <feComposite id="feComposite1195" result="composite1" in="flood" in2="SourceGraphic" operator="in" />
+      <feGaussianBlur id="feGaussianBlur1197" result="blur" in="composite1" stdDeviation="0.5" />
+      <feOffset id="feOffset1199" result="offset" dx="1.8" dy="1.8" />
+      <feComposite id="feComposite1201" result="composite2" in="SourceGraphic" in2="offset" operator="over" />
+    </filter>
+    <filter id="filter1215" style="color-interpolation-filters: sRGB;" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" inkscape:label="Drop Shadow">
+      <feFlood id="feFlood1205" flood-color="rgb(0,0,0)" flood-opacity="0.498039" result="flood" />
+      <feComposite id="feComposite1207" result="composite1" in="flood" in2="SourceGraphic" operator="in" />
+      <feGaussianBlur id="feGaussianBlur1209" result="blur" in="composite1" stdDeviation="0.5" />
+      <feOffset id="feOffset1211" result="offset" dx="1.8" dy="1.8" />
+      <feComposite id="feComposite1213" result="composite2" in="SourceGraphic" in2="offset" operator="over" />
+    </filter>
+    <filter id="filter1227" style="color-interpolation-filters: sRGB;" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" inkscape:label="Drop Shadow">
+      <feFlood id="feFlood1217" flood-color="rgb(0,0,0)" flood-opacity="0.498039" result="flood" />
+      <feComposite id="feComposite1219" result="composite1" in="flood" in2="SourceGraphic" operator="in" />
+      <feGaussianBlur id="feGaussianBlur1221" result="blur" in="composite1" stdDeviation="0.5" />
+      <feOffset id="feOffset1223" result="offset" dx="1.8" dy="1.8" />
+      <feComposite id="feComposite1225" result="composite2" in="SourceGraphic" in2="offset" operator="over" />
+    </filter>
+  </defs>
+  </svg>
+  <svg class="defsSvg">
+  <defs id="defs2">
+    <filter id="stainedGlass" style="color-interpolation-filters: sRGB;" x="-0.25" y="-0.25" width="1.5" height="1.5" inkscape:menu-tooltip="Illuminated stained glass effect" inkscape:menu="Bevels" inkscape:label="Stained Glass">
+      <feBlend id="feBlend831" result="result1" in2="SourceGraphic" mode="screen" />
+      <feGaussianBlur id="feGaussianBlur833" result="result6" stdDeviation="2" />
+      <feComposite id="feComposite835" result="result7" in="result6" in2="result6" operator="xor" />
+      <feComposite id="feComposite837" result="result92" in="result6" in2="result1" operator="atop" />
+      <feComposite id="feComposite839" result="result4" in="result7" in2="result92" operator="xor" />
+      <feGaussianBlur id="feGaussianBlur841" result="result3" in="result4" stdDeviation="0.7" />
+      <feSpecularLighting id="feSpecularLighting845" result="result5" surfaceScale="4" specularConstant="1.5" specularExponent="50">
+        <fePointLight id="fePointLight843" x="-5000" y="-8000" z="20000" />
+      </feSpecularLighting>
+      <feComposite id="feComposite847" result="result93" in="result3" in2="SourceGraphic" operator="arithmetic" k2="1" k3="1" />
+      <feComposite id="feComposite849" result="result94" in="result5" in2="result93" operator="atop" />
+      <feBlend id="feBlend851" in2="result94" mode="multiply" />
+    </filter>
+  </defs>
+  <sodipodi:namedview inkscape:window-maximized="1" inkscape:window-y="303" inkscape:window-x="1912" inkscape:window-height="1021" inkscape:window-width="1920" showgrid="false" inkscape:current-layer="layer2" inkscape:document-units="mm" inkscape:cy="560" inkscape:cx="-64.285714" inkscape:zoom="0.35" inkscape:pageshadow="2" inkscape:pageopacity="0.0" borderopacity="1.0" bordercolor="#666666" pagecolor="#ffffff" id="base" />
+  <metadata id="metadata5">
+    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+      <cc:Work xmlns:cc="http://creativecommons.org/ns#" rdf:about="">
+        <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/">image/svg+xml</dc:format>
+        <dc:type xmlns:dc="http://purl.org/dc/elements/1.1/" rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+</svg>
+  <svg class="defsSvg">
+    <defs xmlns="http://www.w3.org/2000/svg" id="defs15">
+    <linearGradient id="linearGradient4519" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" inkscape:collect="always">
+      <stop id="stop4515" style="stop-color: rgb(232, 246, 246); stop-opacity: 1;" offset="0" />
+      <stop id="stop4517" style="stop-color: rgb(232, 246, 246); stop-opacity: 0;" offset="1" />
+    </linearGradient>
+    <linearGradient id="streakEffect" gradientUnits="userSpaceOnUse" spreadMethod="reflect" x1="27.7812" y1="293.031" x2="31.75" y2="297" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" inkscape:collect="always" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#linearGradient4519" />
+  </defs>
+  </svg>
+  <div id="app"></div>
+
+</body>
+</html>
