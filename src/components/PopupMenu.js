@@ -12,6 +12,8 @@ class PopupMenu extends React.Component{
   constructor(props){
     super(props)
       this.state = {
+          height: Math.max($(document).height(), $(window).height())+50,
+          width: document.documentElement.scrollWidth + 50 + 'px',
           menuText: "1 Player  |  2 Players",
           button1: "player1",
           button2: "player2",
@@ -31,6 +33,59 @@ class PopupMenu extends React.Component{
                    button2: "player2",})
   }
   
+  //throttle for screen resize function
+  throttle(func, wait, options) {
+  var context, args, result;
+  var timeout = null;
+  var previous = 0;
+  if (!options) options = {};
+  var later = function() {
+    previous = options.leading === false ? 0 : Date.now();
+    timeout = null;
+    result = func.apply(context, args);
+    if (!timeout) context = args = null;
+  };
+  return function() {
+    var now = Date.now();
+    if (!previous && options.leading === false) previous = now;
+    var remaining = wait - (now - previous);
+    context = this;
+    args = arguments;
+    if (remaining <= 0 || remaining > wait) {
+      if (timeout) {
+        clearTimeout(timeout);
+        timeout = null;
+      }
+      previous = now;
+      result = func.apply(context, args);
+      if (!timeout) context = args = null;
+    } else if (!timeout && options.trailing !== false) {
+      timeout = setTimeout(later, remaining);
+    }
+    return result;
+  }
+}
+
+  //resizes the background of the popup menu
+  resize(that){
+    that.setState({
+      height: Math.max($(document).height(), $(window).height()) + 50,
+      width: document.documentElement.scrollWidth + 50 + 'px',
+    });
+  }
+
+  //adds window resize eventListener to the component when it is mounted
+  componentDidMount(){
+    let that = this;
+    window.addEventListener('resize', this.throttle(this.resize(that),200));
+  }
+  
+  //removes window resize eventListener from the component when it is unmounted
+  componentWillUnmount(){
+    let that = this;
+   window.removeEventListener('resize', this.throttle(this.resize(that),200));
+  }
+
 //////////////////// Start functions that generate game settings /////////////////////////////
 //both buttons in the game settings menu call the same function (choice) is the data from the buttont that was clicked
 //the game settings are stored in an object that is passed along through these functions
@@ -89,7 +144,8 @@ class PopupMenu extends React.Component{
   }
   //////////////////// End functions that generate game settings /////////////////////////////
   render(){
-    var height = Math.max($(document).height(), $(window).height())
+    var height = this.state.height;
+    var width = this.state.width;
     var hideMenu = this.props.popupMenuVisibility? "visible" : "hidden";
     var style = {
       divInner: {
@@ -119,7 +175,7 @@ class PopupMenu extends React.Component{
         zIndex: "1",
         flex: 1,
         height: height,
-        width: document.documentElement.scrollWidth + 'px',
+        width: width,
       },
       button1: {
         marginLeft: "25px",

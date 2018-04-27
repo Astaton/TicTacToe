@@ -66,6 +66,7 @@ button:hover{
 #baseButtonsDiv{
   position: relative;
   margin: 0 auto;
+  width: 285px;
   width: fit-content;
 }
 
@@ -102,14 +103,14 @@ button:hover{
 
 
 .squareOAnim{
-  stroke-dashoffset: 0;
+  stroke-dashoffset: 57;
   stroke-dasharray: 55;
   stroke-width: 5px;
   animation: odash 1.3s forwards;
 }
 .squareXAnim{
   filter:url(#stainedGlass);
-  stroke-dashoffset: 70;
+  stroke-dashoffset: 31;
   stroke-dasharray: 30;
   stroke-width: 5px;
   animation: xdash 1s forwards;
@@ -120,7 +121,7 @@ button:hover{
   stroke-dasharray: 30;
   }
   to {
-    stroke-dashoffset: 30;
+    stroke-dashoffset: 31;
     stroke-dasharray: 30;
   }
 }
@@ -130,7 +131,7 @@ button:hover{
   stroke-dasharray: 55;
   }
   to {
-    stroke-dashoffset: 55;
+    stroke-dashoffset: 57;
     stroke-dasharray: 55;
   }
 }

@@ -5,6 +5,7 @@ const htmlWebpack = require('html-webpack-plugin');
 module.exports = {
 	entry: {
 		script: './src/index.js',
+		vendor: 'babel-polyfill'
 	},
 	output: {
 		path: path.join(__dirname, '/public'),
@@ -17,7 +18,7 @@ module.exports = {
 				exclude: /node_modules/,
 				use: {
 					loader: 'babel-loader'
-				}	
+				}
 			},
 			{
 				test:/\.css$/,

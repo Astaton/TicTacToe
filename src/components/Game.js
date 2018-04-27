@@ -8,9 +8,8 @@ import PopupMenu from './PopupMenu'
 class Game extends React.Component{
   constructor(props){
     super(props)
-    var squares = new Array(9).fill(0)
     this.state = {
-      squares: squares,
+      squares: new Array(9).fill(0),
       squaresAnimated: [],
       xScore: 0,
       oScore: 0,
@@ -29,7 +28,8 @@ class Game extends React.Component{
     this.startOver = this.startOver.bind(this)
     this.runAi = this.runAi.bind(this)
   }
-  
+
+
   //////////////////////////  ai functions start  ///////////////////////////
 
   componentDidUpdate(){  //checks to see if ai is active and if so calls it to select a square
@@ -121,9 +121,11 @@ startMinmax(){
   /////////////////  ai functions stop//////////////////////////////
   
   startGame(gameSettings){
-    this.setState({ai: gameSettings.ai, player: gameSettings.startingPlayerMark, startingPlayer: gameSettings.startingPlayerMark, popupMenu: false, renderPopupMenu: false, playerOneMark: gameSettings.startingPlayerMark});
-    this.resetScore();
-    this.resetBoard();
+    this.setState({ai: gameSettings.ai, player: gameSettings.startingPlayerMark, startingPlayer: gameSettings.startingPlayerMark, popupMenu: false, renderPopupMenu: false, playerOneMark: gameSettings.startingPlayerMark}, ()=>{
+      this.resetScore();
+      this.resetBoard();  
+    });
+    
   }
   
   startOver(){
@@ -141,15 +143,15 @@ startMinmax(){
   resetScore(){
     this.setState({xScore:0, oScore:0})
   }
-  
+  resetSquares 
   resetBoard(){
     this.replaceGlassPane();
-    var resetSquares = new Array(9).fill(0);
+    // var resetSquares =  new Array(9).fill(0);
     this.removeSquareAnimations();
     if(this.state.winner>0){
-    this.setState({squares:resetSquares, player: this.state.startingPlayer? false: true, winner: 0, squaresAnimated: [], startingPlayer: this.state.startingPlayer? false : true});
+    this.setState({squares: new Array(9).fill(0), player: this.state.startingPlayer? false: true, winner: 0, squaresAnimated: [], startingPlayer: this.state.startingPlayer? false : true});
     }else{
-      this.setState({squares:resetSquares, player: this.state.startingPlayer? true: false, winner: 0, squaresAnimated: []});
+      this.setState({squares: new Array(9).fill(0), player: this.state.startingPlayer? true: false, winner: 0, squaresAnimated: []});
     }
   }
   
