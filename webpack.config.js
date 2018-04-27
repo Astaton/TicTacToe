@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const webpackJsMin = require('webpack-js-min');
 const htmlWebpack = require('html-webpack-plugin');
 
 module.exports = {
@@ -30,6 +31,7 @@ module.exports = {
 		]
 	},
 	plugins: [
+		webpackJsMin,
 		new webpack.ProvidePlugin({
 			$: "jquery",
 			jQuery: "jquery"
